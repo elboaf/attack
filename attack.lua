@@ -9,11 +9,9 @@ end)
 
 SLASH_ATTACK1 = '/attack'
 function SlashCmdList.ATTACK(command)
-	if not attacking then
-		if not attack.tick or attack.tick < GetTime() then
+	if (not attacking) and (not attack.tick or attack.tick < GetTime()) then
 			attack.tick = GetTime() + .2
 			CastSpellByName'Attack'
-	end
 	end
 end
 
