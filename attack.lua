@@ -1,17 +1,18 @@
 local attacking
-local attack
+local attacktick
 
 local f = CreateFrame'Frame'
 f:RegisterEvent'PLAYER_ENTER_COMBAT'
 f:RegisterEvent'PLAYER_LEAVE_COMBAT'
 f:SetScript('OnEvent', function()
 	attacking = event == 'PLAYER_ENTER_COMBAT'
+	attacktick = GetTime() + .2
 end)
 
 SLASH_ATTACK1 = '/attack'
 function SlashCmdList.ATTACK(command)
-	if (not attacking) and (not attack.tick or attack.tick < GetTime()) then
-			attack.tick = GetTime() + .2
+	if (not attacking) and (not attacktick or attacktick < GetTime()) then
+			attacktick = GetTime() + .2
 			CastSpellByName'Attack'
 	end
 end
