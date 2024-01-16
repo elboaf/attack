@@ -1,4 +1,5 @@
 local attacking
+local attack
 
 local f = CreateFrame'Frame'
 f:RegisterEvent'PLAYER_ENTER_COMBAT'
