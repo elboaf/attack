@@ -6,13 +6,13 @@ f:RegisterEvent'PLAYER_ENTER_COMBAT'
 f:RegisterEvent'PLAYER_LEAVE_COMBAT'
 f:SetScript('OnEvent', function()
 	attacking = event == 'PLAYER_ENTER_COMBAT'
-	attacktick = GetTime() + .2
+	attacktick = GetTime()
 end)
 
 SLASH_ATTACK1 = '/attack'
 function SlashCmdList.ATTACK(command)
 	if (not attacking) and (not attacktick or attacktick < GetTime()) then
-			attacktick = GetTime() + .2
+			attacktick = GetTime() + .3
 			CastSpellByName'Attack'
 	end
 end
