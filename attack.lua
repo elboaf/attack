@@ -6,7 +6,6 @@ f:RegisterEvent'PLAYER_ENTER_COMBAT'
 f:RegisterEvent'PLAYER_LEAVE_COMBAT'
 f:SetScript('OnEvent', function()
 	attacking = event == 'PLAYER_ENTER_COMBAT'
-	attacktick = GetTime() + .3
 end)
 
 SLASH_ATTACK1 = '/attack'
